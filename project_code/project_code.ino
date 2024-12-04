@@ -6,7 +6,7 @@
 #define ENABLE 5      // Enable pin for motor driver (PWM)
 #define DIRA 3        // Direction pin A for motor driver
 #define DIRB 4        // Direction pin B for motor driver
-#define TEMP_THRESHOLD 22 // Temperature threshold
+#define TEMP_THRESHOLD 20 // Temperature threshold
 #define DHT_PIN 2     // Sensor pin for the temperature sensor 
 
 DHT_nonblocking dht_sensor(DHT_PIN, DHT_TYPE); // Initialize DHT sensor
@@ -38,8 +38,8 @@ void loop() {
 
     if (temperature > TEMP_THRESHOLD) { // Check if temp above threshold
       int tempDifference = temperature - TEMP_THRESHOLD; 
-      int speed = map(tempDifference, 0, 10, 50, 255); // Scale speed based on temperature difference
-      speed = constrain(speed, 50, 255); // Ensure speed is within valid range
+      int speed = map(tempDifference, 0, 10, 100, 255); // Scale speed based on temperature difference
+      speed = constrain(speed, 100, 255); // Ensure speed is within valid range
       analogWrite(ENABLE, speed); // Set fan speed
       digitalWrite(DIRA, LOW);   
       digitalWrite(DIRB, HIGH);

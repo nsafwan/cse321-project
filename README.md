@@ -19,13 +19,13 @@ Hardware Components/Parts Required:
 12) 3x Male-Female Jumper Wires
 13) 1x Breadboard
 
-The next steps detail the connections needed for the hardware components to create the project. An image with the connections is given in the PrjPhase3.pdf file on figure 3.
+The next steps detail the connections needed for the hardware components to create the project. An image with the connections is given in the Phase 3 Documentation file on figure 1.
 
 Step 1:
 Connect the Power Supply Module to an end of the breadboard. Connect the 9v battery to the Power supply module. Connect the ground lane of the breadboard (- lane) to the GND pin in the UNO.
 
 Step 2: 
-Connect the PIR sensor to the arduino pin 7 using the male-female jumper wires.
+Connect the PIR sensor to the arduino pin 7 using the male-female jumper wires. Connect its ground and power pin to the breadboard.
 
 Step 3: 
 Using the breadboard, connect the Red LED to the Arduino. Its long leg should be connected with the 220 ohm resistor and the resistor should be connected to pin 13 on the Arduino using a jumper wire. The LED's short leg should be connected to the ground on the breadboard.
@@ -45,7 +45,7 @@ Project Use
 After uploading the project .ino file into the Arduiono, the project should turn on.
 After waiting around 1 min for the PIR sensor to give out accurate results, walk infront of the PIR sensor or move a hand infront of it. 
 The Red LED should turn on once the PIR detects the motion. You should also see a message in the Serial Monitor for the board that says the Fan is turned on. 
-If the current temperature is higher than the preset threshold temperature (set to 22C here), the motor and the fans should also turn on. 
+If the current temperature is higher than the preset threshold temperature (set to 20C here), the motor and the fans should also turn on. 
 The Serial monitor will display the speed of the fan. Otherwise, the fans will remain off.
 
 To tweak the temperature threshold, simply modify the threshold variable in the project_code.ino file to the desired value.
@@ -53,13 +53,3 @@ To tweak the temperature threshold, simply modify the threshold variable in the 
 Remove any sort of movement infront of the PIR sensor, and the fans and light should turn off after a few seconds.
 
 The motion and the temperature are the factors that control the outputs which are the fans and the light. They together give out information that can be used to automatically turn on the lighting and cooling depending on the need (temperature and the presence of someone).
-
-
-Repository Layout
----------------
-
-/dht_nonblocking is the library given by the supplier of the dht11 sensor which is Elegoo. I simply use it in my project to get the readings.
-
-/tests contains the testing files for the hardware. These are small sketches that test that the hardware is working.
-
-/project_code is the project code. It contains all the code for the project. The dht_nonblocking library needs to be installed tho.
